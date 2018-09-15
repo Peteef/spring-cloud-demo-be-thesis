@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>pl.edu.agh.wfiis.kamilturek</groupId>
         <artifactId>spring-cloud-demo</artifactId>
+        <groupId>pl.edu.agh.wfiis.kamilturek</groupId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>config-server</artifactId>
+    <artifactId>notification-service</artifactId>
     <version>1.0</version>
 
-    <name>config-server</name>
+    <name>notification-service</name>
 
     <build>
         <plugins>
@@ -26,12 +26,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-security</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
     </dependencies>
+
 </project>
