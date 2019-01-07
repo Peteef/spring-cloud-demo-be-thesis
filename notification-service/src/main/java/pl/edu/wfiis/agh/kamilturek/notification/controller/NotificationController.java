@@ -41,8 +41,8 @@ public class NotificationController {
     }
 
     @GetMapping("/accounts/{id}")
-    public ResponseEntity findByAccount(@PathVariable("id") Integer accountId) {
-        LOGGER.info("Employee by account id find: accountId={}", accountId);
-        return ResponseEntity.ok(repository.findByAccountId(accountId));
+    public ResponseEntity findByAccount(@PathVariable("id") String accountNumber) {
+        LOGGER.info("Employee by account number find: accountNumber={}", accountNumber);
+        return ResponseEntity.ok(repository.findByAccountNumber(accountNumber));
     }
 }

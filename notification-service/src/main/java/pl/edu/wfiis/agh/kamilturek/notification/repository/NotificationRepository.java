@@ -23,9 +23,9 @@ public class NotificationRepository {
                             .findFirst();
     }
 
-    public List<Notification> findByAccountId(Integer accountId) {
+    public List<Notification> findByAccountNumber(String accountNumber) {
         return notifications.stream()
-                            .filter(notification -> notification.getAccountId().equals(accountId))
+                            .filter(notification -> notification.getAccountNumber().equals(accountNumber))
                             .collect(Collectors.toList());
     }
 }

@@ -4,11 +4,11 @@ import java.util.Objects;
 
 public class Notification {
     private Integer id;
-    private Integer accountId;
+    private String accountNumber;
     private String text;
 
-    public Notification(Integer accountId, String text) {
-        this.accountId = accountId;
+    public Notification(String accountNumber, String text) {
+        this.accountNumber = accountNumber;
         this.text = text;
     }
 
@@ -20,8 +20,8 @@ public class Notification {
         return id;
     }
 
-    public Integer getAccountId() {
-        return accountId;
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
     public String getText() {
@@ -32,7 +32,7 @@ public class Notification {
     public String toString() {
         return "Notification{" +
                 "id=" + id +
-                ", accountId=" + accountId +
+                ", accountNumber='" + accountNumber + '\'' +
                 ", text='" + text + '\'' +
                 '}';
     }
@@ -43,12 +43,12 @@ public class Notification {
         if (o == null || getClass() != o.getClass()) return false;
         Notification that = (Notification) o;
         return Objects.equals(id, that.id) &&
-                accountId.equals(that.accountId) &&
+                accountNumber.equals(that.accountNumber) &&
                 text.equals(that.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, accountId, text);
+        return Objects.hash(id, accountNumber, text);
     }
 }
