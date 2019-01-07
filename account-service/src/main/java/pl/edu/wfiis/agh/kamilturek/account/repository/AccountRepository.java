@@ -9,7 +9,6 @@ import java.util.Optional;
 
 public class AccountRepository {
     private List<Account> accounts = new LinkedList<>();
-    private Integer idSequence = 0;
 
     public Account add(Account account) {
         accounts.add(account);
