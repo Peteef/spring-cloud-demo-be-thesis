@@ -31,6 +31,10 @@ public class Payment {
         return timestamp;
     }
 
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
     public String getTitle() {
         return title;
     }

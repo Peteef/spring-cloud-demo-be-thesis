@@ -32,17 +32,18 @@ public class NotificationController {
 
     @GetMapping("/{id}")
     public ResponseEntity findById(@PathVariable("id") Integer id) {
-        LOGGER.info("Employee find: id={}", id);
+        LOGGER.info("Notification find: id={}", id);
         Optional optional = repository.findById(id);
         if(optional.isPresent()) {
             return ResponseEntity.ok(optional.get());
         }
+        LOGGER.info("Notification not exist: id={}", id);
         return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/accounts/{accountNumber}")
     public ResponseEntity findByAccount(@PathVariable("accountNumber") String accountNumber) {
-        LOGGER.info("Employee by account number find: accountNumber={}", accountNumber);
+        LOGGER.info("Notification by account number find: accountNumber={}", accountNumber);
         return ResponseEntity.ok(repository.findByAccountNumber(accountNumber));
     }
 }

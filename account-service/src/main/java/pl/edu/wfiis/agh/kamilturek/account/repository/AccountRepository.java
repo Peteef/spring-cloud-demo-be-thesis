@@ -23,7 +23,7 @@ public class AccountRepository {
 
     public Account credit(String accountNumber, Double value) {
         Optional<Account> account = findByAccountNumber(accountNumber);
-        if(account.isPresent()) {
+        if(account.isPresent() && value > 0) {
             accounts.forEach(
                     acc -> {
                         if(acc.equals(account.get())) {
@@ -38,7 +38,7 @@ public class AccountRepository {
 
     public Account debit(String accountNumber, Double value) {
         Optional<Account> account = findByAccountNumber(accountNumber);
-        if(account.isPresent()) {
+        if(account.isPresent() && value > 0) {
             accounts.forEach(
                     acc -> {
                         if(acc.equals(account.get())) {

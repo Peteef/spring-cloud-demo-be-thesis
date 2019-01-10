@@ -5,10 +5,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import pl.edu.wfiis.agh.kamilturek.payment.model.Notification;
 
-import java.util.List;
-
 @FeignClient(name = "notification-service")
 public interface NotificationClient {
-    @PostMapping("/notifications/}")
-    List findByAccount(@RequestBody Notification notification);
+    @PostMapping("/notifications/")
+    Notification add(@RequestBody Notification notification);
 }

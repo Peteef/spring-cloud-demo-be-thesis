@@ -37,11 +37,12 @@ public class AccountController {
 
     @GetMapping("/{accountNumber}")
     public ResponseEntity findByAccountNumber(@PathVariable("accountNumber") String accountNumber) {
-        LOGGER.info("Account find: id={}", accountNumber);
+        LOGGER.info("Account find: accountNumber={}", accountNumber);
         Optional optional = repository.findByAccountNumber(accountNumber);
         if(optional.isPresent()) {
             return ResponseEntity.ok(optional.get());
         }
+        LOGGER.info("Account not exist: accountNumber={}", accountNumber);
         return ResponseEntity.notFound().build();
     }
 
