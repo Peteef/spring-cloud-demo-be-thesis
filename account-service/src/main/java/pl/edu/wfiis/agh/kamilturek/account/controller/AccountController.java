@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.edu.wfiis.agh.kamilturek.account.client.NotificationClient;
 import pl.edu.wfiis.agh.kamilturek.account.exception.CouldNotProcessValueException;
 import pl.edu.wfiis.agh.kamilturek.account.model.Account;
 import pl.edu.wfiis.agh.kamilturek.account.repository.AccountRepository;
@@ -20,9 +21,12 @@ public class AccountController {
 
     private final AccountRepository repository;
 
+    private NotificationClient notificationClient;
+
     @Autowired
-    public AccountController(AccountRepository repository) {
+    public AccountController(AccountRepository repository, NotificationClient notificationClient) {
         this.repository = repository;
+        this.notificationClient = notificationClient;
     }
 
     @PostMapping("/")
@@ -39,6 +43,11 @@ public class AccountController {
             return ResponseEntity.ok(optional.get());
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/{accountNumber}/notifications/")
+    public ResponseEntity findNotificationByAccountNumber(@PathVariable("accountNumber") String accountNumber) {
+        return ResponseEntity.ok(notificationClient.findByAccount(accountNumber));
     }
 
     @PutMapping("/{accountNumber}/credit/{value}")

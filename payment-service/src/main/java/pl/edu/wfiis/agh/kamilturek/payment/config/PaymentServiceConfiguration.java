@@ -1,6 +1,7 @@
 package pl.edu.wfiis.agh.kamilturek.payment.config;
 
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -12,6 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableDiscoveryClient
+@EnableFeignClients(basePackages = "pl.edu.wfiis.agh.kamilturek.payment")
 @EnableSwagger2
 public class PaymentServiceConfiguration {
     @Bean

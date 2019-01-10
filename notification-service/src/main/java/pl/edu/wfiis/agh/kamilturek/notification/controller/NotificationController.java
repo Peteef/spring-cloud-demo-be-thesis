@@ -40,8 +40,8 @@ public class NotificationController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/accounts/{id}")
-    public ResponseEntity findByAccount(@PathVariable("id") String accountNumber) {
+    @GetMapping("/accounts/{accountNumber}")
+    public ResponseEntity findByAccount(@PathVariable("accountNumber") String accountNumber) {
         LOGGER.info("Employee by account number find: accountNumber={}", accountNumber);
         return ResponseEntity.ok(repository.findByAccountNumber(accountNumber));
     }
