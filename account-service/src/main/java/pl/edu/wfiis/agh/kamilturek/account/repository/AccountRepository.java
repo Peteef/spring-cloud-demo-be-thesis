@@ -15,6 +15,10 @@ public class AccountRepository {
         return account;
     }
 
+    public List<Account> findAll() {
+        return accounts;
+    }
+
     public Optional<Account> findByAccountNumber(String accountNumber) {
         return accounts.stream()
                        .filter(notification -> notification.getAccountNumber().equals(accountNumber))

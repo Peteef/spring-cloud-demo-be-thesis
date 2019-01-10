@@ -35,6 +35,12 @@ public class AccountController {
         return ResponseEntity.ok(repository.add(account));
     }
 
+    @GetMapping("/")
+    public ResponseEntity findAll() {
+        LOGGER.info("All accounts find");
+        return ResponseEntity.ok(repository.findAll());
+    }
+
     @GetMapping("/{accountNumber}")
     public ResponseEntity findByAccountNumber(@PathVariable("accountNumber") String accountNumber) {
         LOGGER.info("Account find: accountNumber={}", accountNumber);
