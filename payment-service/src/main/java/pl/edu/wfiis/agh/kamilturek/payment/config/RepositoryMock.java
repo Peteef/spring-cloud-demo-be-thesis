@@ -2,7 +2,7 @@ package pl.edu.wfiis.agh.kamilturek.payment.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import pl.edu.wfiis.agh.kamilturek.payment.reporitory.PaymentRepository;
+import pl.edu.wfiis.agh.kamilturek.payment.repository.PaymentRepository;
 
 @Configuration
 public class RepositoryMock {

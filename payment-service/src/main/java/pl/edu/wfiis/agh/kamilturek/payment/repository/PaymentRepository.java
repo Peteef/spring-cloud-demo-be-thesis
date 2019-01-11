@@ -1,4 +1,4 @@
-package pl.edu.wfiis.agh.kamilturek.payment.reporitory;
+package pl.edu.wfiis.agh.kamilturek.payment.repository;
 
 import pl.edu.wfiis.agh.kamilturek.payment.model.Payment;
 

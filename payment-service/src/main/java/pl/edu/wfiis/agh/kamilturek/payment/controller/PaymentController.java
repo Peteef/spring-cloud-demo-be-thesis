@@ -10,7 +10,7 @@ import pl.edu.wfiis.agh.kamilturek.payment.client.AccountClient;
 import pl.edu.wfiis.agh.kamilturek.payment.client.NotificationClient;
 import pl.edu.wfiis.agh.kamilturek.payment.model.Notification;
 import pl.edu.wfiis.agh.kamilturek.payment.model.Payment;
-import pl.edu.wfiis.agh.kamilturek.payment.reporitory.PaymentRepository;
+import pl.edu.wfiis.agh.kamilturek.payment.repository.PaymentRepository;
 
 import java.sql.Timestamp;
 import java.time.Instant;
