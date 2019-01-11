@@ -1,0 +1,77 @@
+version: '2.1'
+services:
+  config-server:
+    image: kamilturek/config-server
+    restart: always
+    ports:
+      - 8888:8888
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  discovery-service:
+    image: kamilturek/discovery-service
+    restart: always
+    depends_on:
+      config-server:
+        condition: service_healthy
+    ports:
+      - 8061:8061
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  gateway-service:
+    image: kamilturek/gateway-service
+    restart: always
+    depends_on:
+      config-server:
+        condition: service_healthy
+    ports:
+      - 8060:8060
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  account-service:
+    image: kamilturek/account-service
+    restart: always
+    depends_on:
+      config-server:
+        condition: service_healthy
+    ports:
+      - 8001:8001
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  notification-service:
+    image: kamilturek/notification-service
+    restart: always
+    depends_on:
+      config-server:
+        condition: service_healthy
+    ports:
+      - 8003:8003
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  payment-service:
+    image: kamilturek/payment-service
+    restart: always
+    depends_on:
+      config-server:
+        condition: service_healthy
+    ports:
+      - 8002:8002
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
