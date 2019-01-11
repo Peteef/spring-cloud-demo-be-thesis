@@ -3,6 +3,7 @@ services:
   config-server:
     image: kamilturek/config-server
     restart: always
+    build: config-server
     ports:
       - 8888:8888
     logging:
@@ -16,6 +17,7 @@ services:
     depends_on:
       config-server:
         condition: service_healthy
+    build: discovery-service
     ports:
       - 8061:8061
     logging:
@@ -29,6 +31,7 @@ services:
     depends_on:
       config-server:
         condition: service_healthy
+    build: gateway-service
     ports:
       - 8060:8060
     logging:
@@ -42,6 +45,7 @@ services:
     depends_on:
       config-server:
         condition: service_healthy
+    build: account-service
     ports:
       - 8001:8001
     logging:
@@ -55,6 +59,7 @@ services:
     depends_on:
       config-server:
         condition: service_healthy
+    build: notification-service
     ports:
       - 8003:8003
     logging:
@@ -68,6 +73,7 @@ services:
     depends_on:
       config-server:
         condition: service_healthy
+    build: payment-service
     ports:
       - 8002:8002
     logging:
